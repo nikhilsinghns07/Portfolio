@@ -1,3 +1,112 @@
+
+.home{
+    padding-left: 12rem;
+    color:whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.home .home-content .text-2{
+    color: whitesmoke;
+    font-size: 75px;
+    font-weight: 600;
+}
+.color{
+    color: orangered;
+}
+
+.about{
+    padding-left: 12rem;
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.p-about{
+    word-spacing: 1px;
+    letter-spacing: 1px;
+}
+
+.skills{
+    padding-left: 12rem;
+    color:whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.highlight{
+    padding-top: 2rem;
+    padding: 5px;
+    font-weight: bold;
+    font-size: larger;
+    color: gray;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.list{
+    padding-bottom: 2rem;
+}
+
+.list-text{
+    color: gray;
+    margin-left: 1rem;
+    margin-top: 4px;
+} 
+
+.languages{
+    margin-left: 2rem;
+    font-size:40px;
+    padding-bottom: 2rem;
+}
+
+
+
+
+/*Responsive media query*/
+@media(max-width: 480px){
+    .home{
+        padding-left: 2rem;
+    }
+    .about{
+        padding: 2rem;
+    }
+    .skills{
+        padding-left: 2rem;
+    }
+    .highlight{
+        padding: 2px;
+    }
+    .list{
+        padding: 2px;
+    }
+    .languages{
+        margin-left: 0%;
+        padding: 2px;
+    }
+}
+
+
+/* Apk.js File */
+.weather{
+    padding: 10px;
+    padding-top: 5rem;
+}
+
+.img1{
+    padding: 10;
+    height: 400px;
+    width: fit-content;
+}
+
+
+
+.img{
+    padding: 10px;
+    flex-direction: row;
+    justify-content:baseline
+}
+
+/* Projects.js */
+
 *{
     margin: 0;
     padding: 0;

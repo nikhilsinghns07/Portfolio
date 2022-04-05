@@ -1,5 +1,5 @@
 import React from "react"
-import './projects.css'
+import './style.css'
 import nsbooksimg  from '../pics/nsbooks.png'
 import Estate from '../pics/Estate.png'
 import todo from '../pics/todo.png'

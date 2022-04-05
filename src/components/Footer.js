@@ -5,7 +5,6 @@ import axios from 'axios'
 import { FaGithub, FaLinkedin} from "react-icons/fa"
 import { ExternalLink } from 'react-external-link';
 
-
 const Footer = () => {
     const [enteredName , setEnteredName] = useState('')
     const [enteredMessage , setEnteredMessage] = useState('')
@@ -37,13 +36,13 @@ const Footer = () => {
         <React.Fragment>
             
             <footer class='footer'>
-                <span class='intro'>Contact Details <br/><span class='icons'>  <br/>
+                <span class='intro'>Contact Details <br/><span class='icons'>  
                 <ExternalLink href="https://www.linkedin.com/in/nikhilsinghns07/"> <FaLinkedin/> </ExternalLink>
                 <ExternalLink href="https://github.com/nikhilsinghns07" > <FaGithub /> </ExternalLink> 
                 </span></span> 
                 
                 <form  class='form' onSubmit={submitHandler} >
-                        <span class='emailsent'>{emailSent && <p>Email Sent.</p> }</span>
+                        <span class='emailsent'>{emailSent ? <p>Email Sent</p> : null }</span>
                         <div class='control'>
                             <label htmlFor='name'>Name</label>
                             <input type='text' id='name' value={enteredName} onChange={nameHandler}/>
@@ -55,7 +54,7 @@ const Footer = () => {
                         </div>
 
                         <div class='actions'>
-                            <button class='btn'>Send</button>
+                           <button class='btn'>Send</button>
                         </div>
                     </form>
                     

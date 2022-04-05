@@ -1,13 +1,12 @@
 import React from "react"
 import Footer from "../components/Footer"
-import './Apk.css'
+import './style.css'
 import weatherAndroid from '../pics/weather1.jpg'
 import weather2 from '../pics/weather2.jpg'
 import gym1 from '../pics/gym1.jpg'
 import gymLogin from '../pics/gymLogin.jpg'
-
-
 import {Card,Button,ListGroup,ListGroupItem} from 'react-bootstrap'
+
 const Apk = () => {
     return(
         <React.Fragment>
