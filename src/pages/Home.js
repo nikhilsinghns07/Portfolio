@@ -4,11 +4,11 @@ import { FaReact , FaNodeJs , FaHtml5 , FaPython , FaCss3 , FaCheck, FaNpm} from
 import { DiMongodb,DiFirebase,DiHeroku, DiGit, DiGithub, DiAndroid } from "react-icons/di";
 import { SiPostman} from "react-icons/si";
 import Footer from "../components/Footer";
-
+import background from '../pics/background.jpg'
 const Home = () => {
     return (
         <React.Fragment>
-
+            <div style={{ backgroundImage: `url(${background})`}}>
             <div class="home">
                     <div class="home-content"> 
                         <p class="text-2">Nikhil <span class='color'>Singh</span></p>
@@ -39,7 +39,9 @@ const Home = () => {
                         <FaReact /> <FaNodeJs/> <FaPython/>  <DiAndroid/> <FaNpm/> <SiPostman /> <FaHtml5/> <FaCss3/>  <DiMongodb/> <DiFirebase/> <DiHeroku/> <DiGit/> <DiGithub/>
                     </div>
             </div>
+            </div>
             <Footer/>
+
             </React.Fragment>
     )
 }

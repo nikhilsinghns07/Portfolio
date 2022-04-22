@@ -3,12 +3,13 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './pages/Home'
 import Project from './pages/Projects';
 import Apk from './pages/Apk';
+import Api from './components/Api'
 import Navbar from './components/Navbar';
-import background from './pics/background.jpg'
+
 
 function App() {
   return (
-    <div style={{ backgroundImage: `url(${background})`}}>
+    <React.Fragment>
       <Navbar />
       <Switch>
         <Route path='/' exact>
@@ -20,12 +21,14 @@ function App() {
         <Route path='/apk'>
           <Apk />
         </Route>
-        
+        <Route path='/blog'>
+          <Api />
+        </Route>
         <Route path ='*'>
           <Redirect to='/'></Redirect>
         </Route>
       </Switch>
-      </div>
+      </React.Fragment>
     
 
   );

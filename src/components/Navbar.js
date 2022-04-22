@@ -10,6 +10,7 @@ return (
             <NavLink to='/' activeStyle> <img src={logo} alt='Logo' style={{height:60,width:70,borderRadius:50}}/> </NavLink>
             <NavLink to='/projects' activeStyle>Projects</NavLink>
             <NavLink to='/apk' activeStyle>Download</NavLink>
+			<NavLink to='/blog' activeStyle>Blog</NavLink>
 		</NavMenu>
 	</Nav>
 	</>

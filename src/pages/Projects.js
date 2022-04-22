@@ -10,13 +10,14 @@ import newsAndroid  from '../pics/News.png'
 import todoAndroid from '../pics/todoAndroid.jpg'
 import weatherAndroid from '../pics/weather1.jpg'
 import gym from '../pics/gym1.jpg'
-
+import background from '../pics/background.jpg'
 import { ExternalLink } from 'react-external-link';
 import Footer from "../components/Footer"
 const Project = () => {
 
     return(
         <React.Fragment>
+            <div style={{ backgroundImage: `url(${background})`}}>
             <section id="projects">
                 <div class="projects container">
                     <p class='desc'> These are Some of my Web  Projects built using JavaScript(Reactjs & Nodejs).</p>
@@ -187,6 +188,7 @@ const Project = () => {
 
 
             <br/> <br/> <br/>
+            </div>
             <Footer/>
         </React.Fragment>
     )
