@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './pages/Home'
 import Project from './pages/Projects';
 import Apk from './pages/Apk';
-import Api from './components/Api'
+import Blog from './pages/Blog'
 import Navbar from './components/Navbar';
 
 
@@ -22,7 +22,7 @@ function App() {
           <Apk />
         </Route>
         <Route path='/blog'>
-          <Api />
+          <Blog />
         </Route>
         <Route path ='*'>
           <Redirect to='/'></Redirect>

@@ -64,6 +64,3 @@ const Apk = () => {
 
 export default Apk
 
-{/*
-            <Button variant="primary" href="https://drive.google.com/file/d/1fJacmht9anuSlELSZHNlW6wiTJ7IWvuZ/view?usp=sharing">Download</Button>
-            <Button variant="primary" href="https://drive.google.com/file/d/1fFj87j2mFOS_AoynAPG8jFyZ_anPoH_f/view?usp=sharing">Download</Button>*/}
