@@ -46,7 +46,7 @@ const Project = () => {
                                     This is a SPA demo of Real Estate Website built using React and For email integration Express and SendGrid-mail-transport has 
                                     been used.
                                 </p>
-                                <ExternalLink href='https://realestatens07.herokuapp.com/'> Real Esatate </ExternalLink>
+                                <ExternalLink href='https://nsgroup.herokuapp.com/'> Real Esatate </ExternalLink>
                             </div>
                             <div class='project-img'>
                                 <img src={Estate} alt='Real Estate'/>
@@ -130,7 +130,7 @@ const Project = () => {
                                 <h1>Project 1</h1> <br/>
                                 <h2>TODO App</h2> <br/>
                                 <p>This is a TODO App built using React-Native. Download Link - </p>
-                                <ExternalLink href="https://expo.dev/artifacts/ecdce15a-ba04-4f91-be88-6e4b48a7f87a" >TODO App</ExternalLink>
+                                <ExternalLink href="https://github.com/nikhilsinghns07/React-Native-TODO-App" >TODO App Github</ExternalLink>
                             </div>
                             <div class="project-img">
                                 <img src={todoAndroid} alt='todo' />
@@ -144,7 +144,7 @@ const Project = () => {
                                 <p>This is a News App built using React-Native.Data gets fetch from <ExternalLink href="https://github.com/SauravKanchan/NewsAPI">News API</ExternalLink> and rendered to
                                 the app.Download Link - 
                                 </p>
-                                <ExternalLink href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40nikhilsinghns07/News-App-8d81009cde8545929cb4ff4cedc9d99e-signed.apk">News App</ExternalLink>
+                                <ExternalLink href="nikhilsinghns07.herokuapp.com/apk">News App</ExternalLink>
                             </div>
                             <div class="project-img">
                                 <img src={newsAndroid} alt='news'/>
@@ -173,7 +173,21 @@ const Project = () => {
                                     For DBMS i have used MongoDB.
                                     Download apk-
                                 </p>
-                                <ExternalLink href="https://nikhilsingh07.herokuapp.com/apk">Download</ExternalLink>
+                                <ExternalLink href="https://nikhilsingh07.herokuapp.com/apk">BeFit07</ExternalLink>
+                            </div>
+                            <div class="project-img">
+                                <img src={gym} alt='gym'/>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-info">
+                                <h1>Project 5</h1> <br/>
+                                <h2>Blog07</h2> <br/>
+                                <p>This is my personal blog app. Single Express server handles routes for both Android and Web.
+                                    Built using ReactJs , React-Native , ExpressJs , Mongoose.Download this for regular post updates.
+                                </p>
+                                <ExternalLink href="https://nikhilsingh07.herokuapp.com/apk">Blog App</ExternalLink>
                             </div>
                             <div class="project-img">
                                 <img src={gym} alt='gym'/>
