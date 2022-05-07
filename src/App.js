@@ -4,8 +4,9 @@ import Home from './pages/Home'
 import Project from './pages/Projects';
 import Apk from './pages/Apk';
 import Navbar from './components/Navbar';
-import Blog from './pages/Blog'
-
+import Blog from './Blog/Blog'
+import Login from './Blog/Login'
+import Signup from './Blog/Signup'
 
 function App() {
   
@@ -25,6 +26,12 @@ function App() {
         </Route>
         <Route path='/blog'>
           <Blog />
+        </Route>
+        <Route path='/login'>
+          <Login />
+        </Route>
+        <Route path='/signup'>
+          <Signup/>
         </Route>
         <Route path ='*'>
           <Redirect to='/'></Redirect>

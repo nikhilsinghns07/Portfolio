@@ -12,7 +12,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import './style.css'
+import {NavLink} from '../components/NavbarElements'
+import Footer from '../components/Footer'
+import { Button } from '@mui/material';
 
 const Blog = () => {
   const [posts,setPosts] = useState([])
@@ -34,17 +36,27 @@ const Blog = () => {
 
     return (
       <div>
+        <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
+          <Button>Create a Post</Button>
+          <NavLink to='/login'>Login</NavLink>
+        </div>
+        <hr style={{height:3}}/>
         { loading ? 
-          <Box style={{textAlign:'center'}}>
+          <Box style={{textAlign:'center',padding:2}}>
             <CircularProgress /> 
             <p>Loading</p>
           </Box> : 
           null 
         }
-
+        
         {
           posts.map((post,idx) => 
-          <div class='container'>
+          <div style={{
+            display:'flex',
+            flexDirection:'row',
+            justifyContent:'space-around',
+            padding:10,
+          }}>
             <Card sx={{ maxWidth:'fit-content' }} key={idx} >
             <CardHeader 
               avatar={
@@ -66,7 +78,9 @@ const Blog = () => {
           </div>
         )
         }
+      <Footer />
       </div>
+      
   );
 }
 
