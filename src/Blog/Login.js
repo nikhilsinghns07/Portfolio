@@ -4,14 +4,17 @@ import TextField from '@mui/material/TextField';
 import {NavLink} from '../components/NavbarElements'
 import { Button } from '@mui/material';
 
+const LoginHandler = () => {
+    
+}
+
 
 const Login = () => {
     return (
         <React.Fragment>
             <div style={{flexDirection:'column',textAlign:'center',padding:10}}>
-                
                 <h2 style={{fontFamily:'cursive'}}>Login</h2>
-                
+    
                 <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
                     <h5 style={{}}>New ?</h5>
                     <NavLink to='/signup'>SignUp</NavLink>
