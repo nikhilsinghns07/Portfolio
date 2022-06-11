@@ -1,20 +1,10 @@
 import React ,{useState,useEffect}  from 'react'
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import {Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box,Button,IconButton} from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import {NavLink} from '../components/NavbarElements'
+import { red } from '@mui/material/colors';
 import Footer from '../components/Footer'
-import { Button } from '@mui/material';
+import BlogHeader from './BlogHeader'
 
 const Blog = () => {
   const [posts,setPosts] = useState([])
@@ -36,11 +26,9 @@ const Blog = () => {
 
     return (
       <div>
-        <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
-          <Button>Create a Post</Button>
-          <NavLink to='/login'>Login</NavLink>
-        </div>
-        <hr style={{height:3}}/>
+        {/* <BlogHeader />
+        <hr style={{height:3}}/> */}
+
         { loading ? 
           <Box style={{textAlign:'center',padding:2}}>
             <CircularProgress /> 
