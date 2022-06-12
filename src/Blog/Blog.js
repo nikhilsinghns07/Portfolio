@@ -4,11 +4,15 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { red } from '@mui/material/colors';
 import Footer from '../components/Footer'
-import BlogHeader from './BlogHeader'
+import {NavLink} from '../components/NavbarElements';
+
+
 
 const Blog = () => {
   const [posts,setPosts] = useState([])
   const [loading,setLoading] = useState(false)
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
+  let token;
 
   const fetchData = () => {
     setLoading(true)
@@ -17,24 +21,31 @@ const Blog = () => {
     .then(data => {
       setPosts(data.posts)
       setLoading(false)
+      token = window.localStorage.getItem("loginToken")
+      if(token != null){
+        setIsLoggedIn(true)
+      }
     }).catch(error => console.log(error))
+
   }
 
   useEffect(() => {
     fetchData()
-  }, [])
+  },[])
 
     return (
       <div>
-        {/* <BlogHeader />
-        <hr style={{height:3}}/> */}
 
-        { loading ? 
+        <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
+            <Button>Create a Post</Button>
+            {isLoggedIn === true ? <Avatar>NS</Avatar> : <NavLink to='/login'>Login</NavLink>}            
+        </div>
+
+        { loading === true ? 
           <Box style={{textAlign:'center',padding:2}}>
             <CircularProgress /> 
             <p>Loading</p>
-          </Box> : 
-          null 
+          </Box> : null 
         }
         
         {
