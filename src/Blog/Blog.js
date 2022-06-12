@@ -5,7 +5,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import { red } from '@mui/material/colors';
 import Footer from '../components/Footer'
 import {NavLink} from '../components/NavbarElements';
-
+import background from '../pics/blogbg.jpg'
 
 
 const Blog = () => {
@@ -34,7 +34,7 @@ const Blog = () => {
   },[])
 
     return (
-      <div>
+      <div style={{ backgroundImage: `url(${background})`}}>
 
         <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
             <Button>Create a Post</Button>

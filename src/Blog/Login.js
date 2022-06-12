@@ -2,7 +2,8 @@ import React,{ useState } from 'react'
 import {CircularProgress,TextField,Button,Alert} from '@mui/material'
 import {NavLink} from '../components/NavbarElements';
 import { useHistory } from "react-router-dom";
-
+import background from '../pics/blogbg.jpg'
+import Footer from '../components/Footer'
 
 const Login = () => {
     const [email,setEmail] = useState('')
@@ -47,29 +48,32 @@ const Login = () => {
 
     return (
         <React.Fragment>
-            <div style={{flexDirection:'column',textAlign:'center',padding:10}}>
-                <h2 style={{fontFamily:'cursive'}}>Login</h2>
+            <div style={{ backgroundImage: `url(${background})`}}>
 
-                <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
-                    <h5 style={{}}>New ?</h5>
-                    <NavLink to='/signup'>SignUp</NavLink>
-                </div>
+                <div style={{flexDirection:'column',textAlign:'center',padding:10}}>
+                    <h2 style={{fontFamily:'cursive'}}>Login</h2>
 
-                {isLoading ? <CircularProgress /> : null}
-                
-                <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-                    <TextField id="filled-basic" label="Email" variant="filled" value={email} onChange={(e) => setEmail(e.target.value)}/> <br />
-                    <TextField id="filled-basic" label="Password" variant="filled" value={password} onChange = {(e) => {setPassword(e.target.value)}}/>    
+                    <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
+                        <h5 style={{}}>New ?</h5>
+                        <NavLink to='/signup'>SignUp</NavLink>
+                    </div>
+
+                    {isLoading ? <CircularProgress /> : null}
+                    
+                    <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                        <TextField id="filled-basic" label="Email" variant="filled" value={email} onChange={(e) => setEmail(e.target.value)}/> <br />
+                        <TextField id="filled-basic" label="Password" variant="filled" value={password} onChange = {(e) => {setPassword(e.target.value)}}/>    
+                    </div>
+                    
+                    <div style={{display:'flex',flexDirection:'row',justifyContent:'center',padding:10}}>
+                        {errorMessage ?  <Alert severity="error">{errorMessage}</Alert>: null}
+                    </div>
+                    
+                    <Button onClick={() => {loginHandler()}}>Login</Button> <br />
+                    <Button>Forgot Password</Button>
                 </div>
-                
-                <div style={{display:'flex',flexDirection:'row',justifyContent:'center',padding:10}}>
-                    {errorMessage ?  <Alert severity="error">{errorMessage}</Alert>: null}
-                </div>
-                
-                <Button onClick={() => {loginHandler()}}>Login</Button> <br />
-                <Button>Forgot Password</Button>
             </div>
-            
+            <Footer />
         </React.Fragment>
     )
 }
