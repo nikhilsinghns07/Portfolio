@@ -2,22 +2,13 @@ import React from "react"
 import './style.css'
 import { FaReact , FaNodeJs , FaHtml5 , FaPython , FaCss3 , FaCheck, FaNpm} from "react-icons/fa"
 import { DiMongodb,DiFirebase,DiHeroku, DiGit, DiGithub, DiAndroid } from "react-icons/di";
-import {ImFolderDownload} from "react-icons/im"
 import { SiPostman} from "react-icons/si";
 import Footer from "../components/Footer";
 import background from '../pics/background.jpg'
 import {  Button } from "@mui/material";
-import {AiOutlineArrowRight} from "react-icons/ai"
-import axios from "axios";
+
 
 const Home = () => {
-    const cvdownloadHandler = async () => {
-        try{
-            await axios.get("/cv")
-        }catch(e) {
-            console.log(e)
-        }
-    }
 
     return (
         <React.Fragment>
@@ -34,8 +25,8 @@ const Home = () => {
             <div class='about'>
                 With 2 years of experience in programming i believe in <span class='color'> "Learn & Implement"</span>. 
                 I am  highly enthusiastic, delivery focused and always motivated in taking up challenges and solving them technically.<br/>
-                <p clas='p-about'>I am an undergrad in <span class='color'>Computer Application.</span> <br/>
-                Download My resume from here <AiOutlineArrowRight size={22}/> <Button onClick={() => {cvdownloadHandler()}}><ImFolderDownload size={20}/></Button>
+                <p clas='p-about'>I am an undergrad in <span class='color'>Computer Application.</span> 
+                <Button href="https://blogbackend7.herokuapp.com/cv">Download Resume</Button>
                 </p> 
             </div>
 
