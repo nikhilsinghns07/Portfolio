@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}  from 'react'
-import {Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box,Button,IconButton} from '@mui/material'
+import {Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box,IconButton} from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { red } from '@mui/material/colors';
@@ -37,7 +37,7 @@ const Blog = () => {
       <div style={{ backgroundImage: `url(${background})`}}>
 
         <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
-            <Button>Create a Post</Button>
+            <NavLink to='/addPost'>Create a Post</NavLink>
             {isLoggedIn === true ? <Avatar>NS</Avatar> : <NavLink to='/login'>Login</NavLink>}            
         </div>
 

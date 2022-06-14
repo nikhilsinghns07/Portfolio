@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Blog from './Blog/Blog'
 import Login from './Blog/Login'
 import Signup from './Blog/Signup'
+import AddPost from './Blog/AddPost';
 
 function App() {
   
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path='/signup'>
           <Signup/>
+        </Route>
+        <Route path='/addPost'>
+          <AddPost />
         </Route>
         <Route path ='*'>
           <Redirect to='/'></Redirect>

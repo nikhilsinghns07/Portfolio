@@ -20,8 +20,7 @@ const Home = () => {
                         <p clas="text-3">Web & Android Developer</p>
                     </div>
             </div>
-
-            
+              
             <div class='about'>
                 With 2 years of experience in programming i believe in <span class='color'> "Learn & Implement"</span>. 
                 I am  highly enthusiastic, delivery focused and always motivated in taking up challenges and solving them technically.<br/>
@@ -29,9 +28,6 @@ const Home = () => {
                 <Button href="https://blogbackend7.herokuapp.com/cv">Download Resume</Button>
                 </p> 
             </div>
-
-            
-
 
             <div class='skills'>
                 <h5 class='highlight'>HIGHLIGHTS</h5>
