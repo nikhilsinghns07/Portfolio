@@ -1,16 +1,16 @@
 import React,{ useState } from 'react'
-import {CircularProgress,TextField,Button,Alert} from '@mui/material'
-import {NavLink} from '../components/NavbarElements';
+import {CircularProgress,TextField,Button,Alert,Grid,CssBaseline,Paper,Box,Avatar,Typography,Link} from '@mui/material'
 import { useHistory } from "react-router-dom";
-import background from '../pics/blogbg.jpg'
 import Footer from '../components/Footer'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const Login = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [isLoading,setIsLoading] = useState(false)
     const [errorMessage,setErrorMessage] = useState(null)
-
+    const theme = createTheme();
     let history = useHistory();
     let error,token;
 
@@ -39,7 +39,6 @@ const Login = () => {
             if(error) {
                 return;
             }
-
             token = data.token
             window.localStorage.setItem("loginToken", token);
             history.push("/blog")
@@ -48,31 +47,52 @@ const Login = () => {
 
     return (
         <React.Fragment>
-            <div style={{ backgroundImage: `url(${background})`}}>
-
-                <div style={{flexDirection:'column',textAlign:'center',padding:10}}>
-                    <h2 style={{fontFamily:'cursive'}}>Login</h2>
-
-                    <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
-                        <h5 style={{}}>New ?</h5>
-                        <NavLink to='/signup'>SignUp</NavLink>
-                    </div>
-
-                    {isLoading ? <CircularProgress /> : null}
-                    
-                    <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-                        <TextField id="filled-basic" label="Email" variant="filled" value={email} onChange={(e) => setEmail(e.target.value)}/> <br />
-                        <TextField id="filled-basic" label="Password" variant="filled" value={password} onChange = {(e) => {setPassword(e.target.value)}}/>    
-                    </div>
-                    
-                    <div style={{display:'flex',flexDirection:'row',justifyContent:'center',padding:10}}>
-                        {errorMessage ?  <Alert severity="error">{errorMessage}</Alert>: null}
-                    </div>
-                    
-                    <Button onClick={() => {loginHandler()}}>Login</Button> <br />
-                    <Button>Forgot Password</Button>
-                </div>
-            </div>
+            <ThemeProvider theme={theme}>
+                <Grid container component="main" sx={{ height: '100vh' }}>
+                    <CssBaseline />
+                    <Grid item xs={false} sm={4} md={7} sx={{
+                        backgroundImage: 'url(https://source.unsplash.com/random)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundColor: (t) =>
+                        t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}/>
+                    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                        <Box sx={{ my: 8,mx: 4,display: 'flex',flexDirection: 'column',alignItems: 'center', }}>
+                            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                                <LockOutlinedIcon />
+                            </Avatar>
+                            <Typography component="h1" variant="h5">
+                            Sign in
+                            </Typography>
+                            <div style={{flexDirection:'column',textAlign:'center',padding:10}}>
+                                {isLoading ? <CircularProgress /> : null}
+                            </div>
+                            <Box >
+                            <div style={{display:'flex',flexDirection:'row',justifyContent:'center',padding:10}}>
+                                {errorMessage ?  <Alert severity="error">{errorMessage}</Alert>: null}
+                            </div>
+                            <TextField margin="normal" required fullWidth label="Email" autoComplete="email"  value={email} onChange={(e) => setEmail(e.target.value)} autoFocus/>
+                            <TextField margin="normal" required fullWidth label="Password" type="password" value={password} onChange = {(e) => {setPassword(e.target.value)}} id="password" autoComplete="current-password"/>
+                            <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} onClick={() => {loginHandler()}}>Login</Button>
+                            <Grid container>
+                                <Grid item xs>
+                                <Link href="#" variant="body2">
+                                    Forgot password?
+                                </Link>
+                                </Grid>
+                                <Grid item>
+                                <Link href="#" variant="body2">
+                                    {"Don't have an account? Sign Up"}
+                                </Link>
+                                </Grid>
+                            </Grid>
+                            </Box>
+                        </Box>
+                    </Grid>
+                </Grid>
+    </ThemeProvider>
             <Footer />
         </React.Fragment>
     )

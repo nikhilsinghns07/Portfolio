@@ -1,30 +1,27 @@
 import React ,{useState,useEffect}  from 'react'
-import {Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box,IconButton, AppBar,Toolbar} from '@mui/material'
+import {Button,Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box,IconButton} from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { red } from '@mui/material/colors';
 import Footer from '../components/Footer'
-
+import {NavLink} from '../components/NavbarElements';
+import { useHistory } from "react-router-dom";
 import background from '../pics/blogbg.jpg'
-
-import { styled, useTheme } from '@mui/material/styles';
 
 const Blog = () => {
   const [posts,setPosts] = useState([])
   const [loading,setLoading] = useState(false)
   const [isLoggedIn,setIsLoggedIn] = useState(false)
   let token;
-
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  let history = useHistory();
+  const CreatePostValidator = () => {
+    if(window.localStorage.getItem("loginToken") == null){
+      history.push('/Login')
+    }
+    if(window.localStorage.getItem("loginToken") != null){
+      history.push('/addPost')
+    }
+  }
 
   const fetchData = () => {
     setLoading(true)
@@ -33,11 +30,12 @@ const Blog = () => {
     .then(data => {
       setPosts(data.posts)
       setLoading(false)
+      // window.localStorage.removeItem("loginToken")
       token = window.localStorage.getItem("loginToken")
       if(token != null){
         setIsLoggedIn(true)
       }
-    }).catch(error => console.log(error))
+    })
 
   }
 
@@ -48,20 +46,10 @@ const Blog = () => {
     return (
       <div style={{ backgroundImage: `url(${background})`}}>
        
-        <Box>
-          <AppBar  position="fixed" open={open}>
-          <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} />
-          <IconButton color="inherit" aria-label="open drawer" edge="end" onClick={handleDrawerOpen} sx={{ ...(open && { display: 'none' }) }}>
-              <MenuIcon />
-              </IconButton>
-        </Toolbar>
-          </AppBar>
-        </Box>
-        {/* <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
-            <NavLink to='/addPost'>Create a Post</NavLink>
+        <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
+            <Button variant="outlined" onClick={() => {CreatePostValidator()}}>Create Post</Button>
             {isLoggedIn === true ? <Avatar>NS</Avatar> : <NavLink to='/login'>Login</NavLink>}            
-        </div> */}
+        </div>
 
         { loading === true ? 
           <Box style={{textAlign:'center',padding:2}}>
@@ -78,7 +66,7 @@ const Blog = () => {
             justifyContent:'space-around',
             padding:10,
           }}>
-            <Card sx={{ maxWidth:'fit-content' }} key={idx} >
+            <Card sx={{ width:'100%' }} key={idx} >
             <CardHeader 
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>
@@ -106,4 +94,3 @@ const Blog = () => {
 }
 
 export default Blog
-

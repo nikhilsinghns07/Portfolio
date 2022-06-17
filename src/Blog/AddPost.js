@@ -13,7 +13,7 @@ const AddPost = () => {
     const [isLoading,setIsLoading] = useState(false)
 
     let history = useHistory()
-    let error , token;
+    let error
 
     const postSubmiHandler = () => {
         if(!title || !author || !content) {
