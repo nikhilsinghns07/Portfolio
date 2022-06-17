@@ -14,12 +14,23 @@ const Blog = () => {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
   let token;
   let history = useHistory();
+
   const CreatePostValidator = () => {
     if(window.localStorage.getItem("loginToken") == null){
       history.push('/Login')
     }
     if(window.localStorage.getItem("loginToken") != null){
       history.push('/addPost')
+    }
+  }
+
+  const logoutHandler = () => {
+    if(isLoggedIn === true) {
+        window.localStorage.removeItem("loginToken")
+        window.location.reload()
+    }
+    if(isLoggedIn === false) {
+      return;
     }
   }
 
@@ -30,7 +41,6 @@ const Blog = () => {
     .then(data => {
       setPosts(data.posts)
       setLoading(false)
-      // window.localStorage.removeItem("loginToken")
       token = window.localStorage.getItem("loginToken")
       if(token != null){
         setIsLoggedIn(true)
@@ -48,7 +58,8 @@ const Blog = () => {
        
         <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
             <Button variant="outlined" onClick={() => {CreatePostValidator()}}>Create Post</Button>
-            {isLoggedIn === true ? <Avatar>NS</Avatar> : <NavLink to='/login'>Login</NavLink>}            
+            {isLoggedIn === true ? <Avatar>NS</Avatar> : <NavLink to='/login'>Login</NavLink>}
+            {isLoggedIn === true ? <Button onClick={() => {logoutHandler()}}>Logout</Button> : null}        
         </div>
 
         { loading === true ? 

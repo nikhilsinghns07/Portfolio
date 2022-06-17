@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Footer from '../components/Footer'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import {NavLink} from '../components/NavbarElements';
 
 const Login = () => {
     const [email,setEmail] = useState('')
@@ -83,9 +84,9 @@ const Login = () => {
                                 </Link>
                                 </Grid>
                                 <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
+                                <NavLink to='/signup'>{"Don't have an account? Sign Up"}</NavLink>
+                                    
+                                
                                 </Grid>
                             </Grid>
                             </Box>
