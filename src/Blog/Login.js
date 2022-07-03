@@ -13,7 +13,7 @@ const Login = () => {
     const [errorMessage,setErrorMessage] = useState(null)
     const theme = createTheme();
     let history = useHistory();
-    let error,token;
+    let error,token,username,sname;
 
     const loginHandler =  () => {
         if(!email || !password) {
@@ -41,7 +41,11 @@ const Login = () => {
                 return;
             }
             token = data.token
+            username = data.username
+            sname = data.sname
             window.localStorage.setItem("loginToken", token);
+            window.localStorage.setItem("username",username)
+            window.localStorage.setItem("sname",sname)
             history.push("/blog")
         })
     }

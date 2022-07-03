@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import {NavLink} from '../components/NavbarElements';
 import { useHistory } from "react-router-dom";
 import background from '../pics/blogbg.jpg'
+import AccountMenu from './Menu'
 
 const Blog = () => {
   const [posts,setPosts] = useState([])
@@ -21,16 +22,6 @@ const Blog = () => {
     }
     if(window.localStorage.getItem("loginToken") != null){
       history.push('/addPost')
-    }
-  }
-
-  const logoutHandler = () => {
-    if(isLoggedIn === true) {
-        window.localStorage.removeItem("loginToken")
-        window.location.reload()
-    }
-    if(isLoggedIn === false) {
-      return;
     }
   }
 
@@ -58,8 +49,7 @@ const Blog = () => {
        
         <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',paddingTop:5}}>
             <Button variant="outlined" onClick={() => {CreatePostValidator()}}>Create Post</Button>
-            {isLoggedIn === true ? <Avatar>NS</Avatar> : <NavLink to='/login'>Login</NavLink>}
-            {isLoggedIn === true ? <Button onClick={() => {logoutHandler()}}>Logout</Button> : null}        
+            {isLoggedIn === true ? <AccountMenu/> : <NavLink to='/login'>Login</NavLink>}
         </div>
 
         { loading === true ? 

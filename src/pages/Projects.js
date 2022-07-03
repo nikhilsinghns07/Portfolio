@@ -20,7 +20,7 @@ const Project = () => {
             <div style={{ backgroundImage: `url(${background})`}}>
             <section id="projects">
                 <div class="projects container">
-                    <p class='desc'> These are Some of my Web  Projects built using JavaScript(Reactjs & Nodejs).</p>
+                <p class='desc'> Web Applications</p>
                     <div class="all-projects">
 
                         <div class="project-item">
@@ -122,7 +122,7 @@ const Project = () => {
 
             <section id="projects">
                 <div class="projects container">
-                    <p class='desc'> These are Some of  Android Projects built using ReactNative.</p>
+                    <p class='desc'> Android Applications</p>
                     <div class="all-projects">
 
                         <div class="project-item">
