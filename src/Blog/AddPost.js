@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import { useHistory } from 'react-router-dom'
 
 const AddPost = () => {
-    const [author,setAuthor] = useState('')
+    const username = window.localStorage.getItem("username")
     const [content,setContent] = useState('')
     const [title,setTitle] = useState('')
     const [url,setUrl] = useState('')
@@ -16,8 +16,8 @@ const AddPost = () => {
     let error
 
     const postSubmiHandler = () => {
-        if(!title || !author || !content) {
-            setErrorMessage('Provide author , content & title of the post.')
+        if(!title || !content) {
+            setErrorMessage('Please Provide the complete details.')
             return;
 
         }
@@ -29,7 +29,7 @@ const AddPost = () => {
                 "Content-Type" : "application/json"
             },
             body:JSON.stringify({
-                "author" : author,
+                "author" : username,
                 "title" : title,
                 "content" : content,
                 "imageUrl" : url
@@ -64,10 +64,9 @@ const AddPost = () => {
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" sx={{textAlign:'center'}}>Create A Post</Typography>
                     <div style={{display:'flex',flexDirection:'column',width:'80%',marginLeft:'10%'}}>
-                        <TextField id="filled-basic" label="Username" variant="filled" value={author} onChange={(e) => setAuthor(e.target.value)}/> <br />
-                        <TextField id="filled-basic" label="Title" variant="filled" value={title} onChange={(e) => setTitle(e.target.value)}/> <br />
+                        <TextField id="filled-basic" label="Title For Your Post" variant="filled" value={title} onChange={(e) => setTitle(e.target.value)}/> <br />
                         <TextField id="filled-basic" label="Content" variant="filled"  multiline value={content} onChange={(e) => setContent(e.target.value)}/> <br />
-                        <TextField id="filled-basic" label="ImageUrl" variant="filled" value={url} onChange={(e) => setUrl(e.target.value)}/> <br />
+                        <TextField id="filled-basic" label="ImageUrl (Optional)" variant="filled" value={url} onChange={(e) => setUrl(e.target.value)}/> <br />
                     </div>
                 </CardContent>
 

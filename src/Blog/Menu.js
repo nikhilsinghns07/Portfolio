@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button,Box,Avatar,Menu,MenuItem,IconButton,Tooltip} from '@mui/material'
+import {NavLink} from '../components/NavbarElements';
 
 export default function AccountMenu() {
   let sn;
@@ -9,14 +10,21 @@ export default function AccountMenu() {
     window.localStorage.removeItem("loginToken")
     window.location.reload()
   }
+  
   sn = window.localStorage.getItem('sname')
+  
   const open = Boolean(anchorEl);
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -69,7 +77,7 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem>
-        My Posts
+        <NavLink to='/userpost'>My Posts</NavLink>
         </MenuItem>
         <MenuItem>
         <Button onClick={() => {logoutHandler()}}>Logout</Button>

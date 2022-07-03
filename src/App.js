@@ -8,6 +8,7 @@ import Blog from './Blog/Blog'
 import Login from './Blog/Login'
 import Signup from './Blog/Signup'
 import AddPost from './Blog/AddPost';
+import UserPost from './Blog/UserPost'
 
 function App() {
   
@@ -37,9 +38,13 @@ function App() {
         <Route path='/addPost'>
           <AddPost />
         </Route>
+        <Route path='/userpost'>
+          <UserPost />
+        </Route>
         <Route path ='*'>
           <Redirect to='/'></Redirect>
         </Route>
+        
       </Switch>
       </React.Fragment>
     
