@@ -1,15 +1,16 @@
 import React,{useState,useEffect} from 'react';
 import {CircularProgress,Box,Card,CardActions,CardContent,CardMedia,Button,Typography} from '@mui/material'
 import background from '../pics/blogbg.jpg'
+import { useHistory } from "react-router-dom";
 
 export default function UserPost() {
     let username;
     const [loading,setLoading] = useState(false)
     const [userpost,setUserPost] = useState([])
+    let history = useHistory();
+    
     username = window.localStorage.getItem('username')
-
     const fetchUserPost = () => {
-        
         setLoading(true)
         fetch('https://blogbackend7.herokuapp.com/userpost',{
             method:"POST",
@@ -21,15 +22,21 @@ export default function UserPost() {
             })
         }).then(res => res.json())
         .then(data => {
-            console.log(data)
             setLoading(false)
             setUserPost(data.posts)
+            
         })
     }
 
     useEffect(() => {
         fetchUserPost()
     },[])
+
+    const editPostHandler = (id) => {
+        window.localStorage.setItem('editposttoken',id)
+        console.log(id)
+        history.push('/editpost')
+    }
 
     return (
         <div style={{ backgroundImage: `url(${background})`}}>
@@ -55,14 +62,14 @@ export default function UserPost() {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Edit</Button>
+                            {/* <NavLink to='/edit' >Edit</NavLink> */}
+                            <Button size="small" onClick={() => {editPostHandler(post._id)}}>Edit</Button>
                             <Button size="small">Delete</Button>
                         </CardActions>
                     </Card>
                 </div>
                 )
             }
-            
         </div>
   );
 }

@@ -9,6 +9,7 @@ import Login from './Blog/Login'
 import Signup from './Blog/Signup'
 import AddPost from './Blog/AddPost';
 import UserPost from './Blog/UserPost'
+import EditPost from './Blog/EditPost';
 
 function App() {
   
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path='/userpost'>
           <UserPost />
+        </Route>
+        <Route>
+          <EditPost />
         </Route>
         <Route path ='*'>
           <Redirect to='/'></Redirect>
