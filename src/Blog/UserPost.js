@@ -23,8 +23,7 @@ export default function UserPost() {
         }).then(res => res.json())
         .then(data => {
             setLoading(false)
-            setUserPost(data.posts)
-            
+            setUserPost(data.posts)     
         })
     }
 
@@ -34,7 +33,6 @@ export default function UserPost() {
 
     const editPostHandler = (id) => {
         window.localStorage.setItem('editposttoken',id)
-        console.log(id)
         history.push('/editpost')
     }
 
